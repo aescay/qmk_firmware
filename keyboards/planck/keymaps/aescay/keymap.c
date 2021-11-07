@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, KC_WH_L, KC_MS_U, KC_WH_R, _______, LGUI(KC_LBRACKET), LCTL(LSFT(KC_TAB)), RCTL(KC_TAB), LGUI(KC_RBRACKET), _______, _______,
     _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, _______, _______,
     _______, _______, KC_BTN2, KC_WH_U, KC_WH_D, _______, KC_BTN1, KC_ACL0, KC_ACL1, KC_ACL2, _______, _______,
-    _______, _______, _______, _______, _______, TO(_QWERTY), _______, _______, _______, _______, _______, _______
+    _______, _______, _______, _______, _______, TO(_QWERTY), KC_NO, _______, _______, _______, _______, _______
 ),
 
 /* Symbols
