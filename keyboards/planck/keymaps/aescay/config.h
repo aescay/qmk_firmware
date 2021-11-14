@@ -49,4 +49,4 @@
 #define ENCODER_RESOLUTION 4
 
 // TAP DANCE configs
-#define TAPPING_TERM 175
+#define TAPPING_TERM 200

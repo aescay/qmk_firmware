@@ -20,6 +20,7 @@
 
 enum planck_layers {
   _QWERTY,
+  _COLEMAK,
   _PLOVER,
   _ADJUST,
   _MOVE,
@@ -29,6 +30,7 @@ enum planck_layers {
 
 enum planck_keycodes {
   QWERTY = SAFE_RANGE,
+  COLEMAK,
   PLOVER,
   EXT_PLV
 };
@@ -54,7 +56,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT ,
-    _______, KC_LCTL, KC_LALT, TD(TD_CAPS), KC_LGUI, _______, OSL(_SYMBOLS), KC_SPC, _______, _______, _______, TO(_NUMBERS)
+    COLEMAK, KC_LCTL, KC_LALT, TD(TD_CAPS), KC_LGUI, _______, OSL(_SYMBOLS), KC_SPC, _______, _______, _______, TO(_NUMBERS)
+),
+
+/* Colemak
+ * ,-----------------------------------------------------------------------------------.
+ * | Esc  |   Q  |   W  |   F  |   P  |   B  |   J  |   L  |   U  |   Y  |   ;  | Bksp |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Tab  |   A  |   R  |   S  |   T  |   G  |   M  |   N  |   E  |   I  |   O  |  "   |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      |   Z  |   X  |   C  |   D  |   V  |   K  |   H  |   ,  |   .  |   /  |Enter |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      | Ctrl | Alt  |Shift | GUI  |      | Symbl|Space |      |      |      | Nums |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_COLEMAK] = LAYOUT_planck_grid(
+    KC_ESC,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
+    KC_TAB,  KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
+    _______, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT ,
+    QWERTY, KC_LCTL, KC_LALT, TD(TD_CAPS), KC_LGUI, _______, OSL(_SYMBOLS), KC_SPC, _______, _______, _______, TO(_NUMBERS)
 ),
 
 /* Move
@@ -146,8 +166,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case QWERTY:
       if (record->event.pressed) {
-        print("mode just switched to qwerty and this is a huge string\n");
+        print("mode just switched to qwerty\n");
         set_single_persistent_default_layer(_QWERTY);
+      }
+      return false;
+      break;
+    case COLEMAK:
+      if (record->event.pressed) {
+        print("mode just switched to colemak\n");
+        set_single_persistent_default_layer(_COLEMAK);
       }
       return false;
       break;
