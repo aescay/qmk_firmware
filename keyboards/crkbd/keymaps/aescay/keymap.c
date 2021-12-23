@@ -47,23 +47,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_MOVE] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX, KC_WH_L, KC_MS_U, KC_WH_R, XXXXXXX,                     LGUI(KC_LBRACKET), LCTL(LSFT(KC_TAB)), RCTL(KC_TAB), LGUI(KC_RBRACKET), XXXXXXX, XXXXXXX,
+      _______, XXXXXXX, KC_WH_L, KC_MS_U, KC_WH_R, XXXXXXX,                     LGUI(KC_LBRACKET), LCTL(LSFT(KC_TAB)), RCTL(KC_TAB), LGUI(KC_RBRACKET), XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, XXXXXXX,
+      _______, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, KC_BTN2, KC_WH_U, KC_WH_D, XXXXXXX,                      KC_BTN1, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, KC_BTN2, KC_WH_U, KC_WH_D, XXXXXXX,                      KC_BTN1, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX,  KC_SPC,     KC_NO,  XXXXXXX, XXXXXXX
+                                          XXXXXXX, XXXXXXX, TO(_COLEMAK), XXXXXXX, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
   [_SYMBOLS] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, XXXXXXX, XXXXXXX, XXXXXXX,
+      _______, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, XXXXXXX, XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_TILD, KC_EQL,  KC_MINS, KC_UNDS, KC_GRV,                     KC_BSLASH, KC_LPRN, KC_RPRN, KC_PIPE, XXXXXXX, XXXXXXX, 
+      _______, KC_TILD, KC_EQL,  KC_MINS, KC_UNDS, KC_GRV,                     KC_BSLASH, KC_LPRN, KC_RPRN, KC_PIPE, XXXXXXX, XXXXXXX, 
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, XXXXXXX, XXXXXXX, 
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, XXXXXXX, _______, 
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX,TO(_COLEMAK),TO(_MOVE), XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
@@ -71,11 +71,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NUMBERS] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX, KC_MPLY, KC_MPRV, KC_MNXT, XXXXXXX,                      KC_PLUS,    KC_7,    KC_8,    KC_9, KC_MINS, XXXXXXX, 
+      _______, XXXXXXX, KC_MPLY, KC_MPRV, KC_MNXT, XXXXXXX,                      KC_PLUS,    KC_7,    KC_8,    KC_9, KC_MINS, _______, 
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, KC__VOLDOWN, KC__VOLUP, XXXXXXX,                KC_ASTR,    KC_4,    KC_5,    KC_6, KC_SLSH, XXXXXXX, 
+      _______, XXXXXXX, XXXXXXX, KC__VOLDOWN, KC__VOLUP, XXXXXXX,                KC_ASTR,    KC_4,    KC_5,    KC_6, KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, KC_BRID, KC_BRIU, XXXXXXX,                      XXXXXXX,    KC_1,    KC_2,    KC_3,  KC_EQL, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, KC_BRID, KC_BRIU, XXXXXXX,                      XXXXXXX,    KC_1,    KC_2,    KC_3,  KC_EQL, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX,TO(_COLEMAK),    XXXXXXX,    KC_0, KC_DOT
                                       //`--------------------------'  `--------------------------'
@@ -83,11 +83,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_WINDOW] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, XXXXXXX, A(C(G(KC_LEFT))), A(C(KC_UP)), A(C(G(KC_RIGHT))), XXXXXXX, XXXXXXX, A(C(KC_U)), A(C(KC_I)),  XXXXXXX, XXXXXXX, XXXXXXX, 
+      _______, XXXXXXX, A(C(G(KC_LEFT))), A(C(KC_UP)), A(C(G(KC_RIGHT))), XXXXXXX, XXXXXXX, A(C(KC_U)), A(C(KC_I)),  XXXXXXX, XXXXXXX, _______, 
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, A(C(KC_LEFT)), A(C(KC_DOWN)), A(C(KC_RIGHT)), XXXXXXX, XXXXXXX, A(C(KC_J)), A(C(KC_K)), XXXXXXX, XXXXXXX, XXXXXXX,
+      _______, XXXXXXX, A(C(KC_LEFT)), A(C(KC_DOWN)), A(C(KC_RIGHT)), XXXXXXX, XXXXXXX, A(C(KC_J)), A(C(KC_K)), XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX,TO(_COLEMAK),    XXXXXXX, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
