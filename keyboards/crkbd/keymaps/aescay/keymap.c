@@ -19,6 +19,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 
+enum layers {
+  _COLEMAK,
+  _MOVE,
+  _SYMBOLS,
+  _NUMBERS,
+  _WINDOW
+};
+
+enum tap_dance_declarations {
+  TD_CAPS
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_COLEMAK] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
