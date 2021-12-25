@@ -20,7 +20,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-//#define USE_MATRIX_I2C
+//#define USE_I2C
+//#define SSD1306OLED
+//#define SPLIT_TRANSPORT_MIRROR
+#define SPLIT_OLED_ENABLE
 
 /* Select hand configuration */
 
@@ -29,22 +32,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define EE_HANDS
 
 #define USE_SERIAL_PD2
-
 #define OLED_TIMEOUT 60000
+//#define OLED_DISABLE_TIMEOUT
 
 // TAP DANCE configs
 #define TAPPING_FORCE_HOLD
 #define TAPPING_TERM 200
 #define IGNORE_MOD_TAP_INTERRUPT
-
-#ifdef RGBLIGHT_ENABLE
-    #undef RGBLED_NUM
-    #define RGBLIGHT_ANIMATIONS
-    #define RGBLED_NUM 27
-    #define RGBLIGHT_LIMIT_VAL 120
-    #define RGBLIGHT_HUE_STEP 10
-    #define RGBLIGHT_SAT_STEP 17
-    #define RGBLIGHT_VAL_STEP 17
-#endif
 
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
