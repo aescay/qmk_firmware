@@ -321,8 +321,16 @@ void oled_render_logo(void) {
     oled_set_cursor(0, 0);
     oled_write_raw_P(chrome_trex, sizeof(chrome_trex));
 
+    /* Keeb Name */
+    oled_set_cursor(0, 4);
+    oled_write("ANDRW", false);
+    oled_set_cursor(0, 5);
+    oled_write("KEEB ", false);
+    oled_set_cursor(0, 6);
+    oled_write("crkbd", false);
+
     /* Print dbt Logo */
-    oled_set_cursor(0, 3);
+    oled_set_cursor(0, 10);
     oled_write_raw_P(dbt_logo, sizeof(dbt_logo));
 
 }
