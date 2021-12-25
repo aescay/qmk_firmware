@@ -30,6 +30,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define USE_SERIAL_PD2
 
+#define OLED_TIMEOUT 60000
+
 // TAP DANCE configs
 #define TAPPING_FORCE_HOLD
 #define TAPPING_TERM 200
