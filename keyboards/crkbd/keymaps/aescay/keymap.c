@@ -108,15 +108,6 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   return rotation;
 }
 
-#define L_BASE 0
-#define L_LOWER 2
-#define L_RAISE 4
-#define L_ADJUST 8
-
-/* 32 * 14 os logos */
-
-static const char PROGMEM mac_logo[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xc0, 0xf0, 0xf8, 0xf8, 0xf8, 0xf0, 0xf6, 0xfb, 0xfb, 0x38, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x07, 0x0f, 0x1f, 0x1f, 0x0f, 0x0f, 0x1f, 0x1f, 0x0f, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-
 // 'dbt-standalone (1)', 32x32px
 static const char PROGMEM dbt_logo[] = {
 	0x18, 0x3e, 0xfe, 0xff, 0xff, 0xfe, 0xfc, 0xfc, 0xf8, 0xf8, 0xf0, 0xe0, 0xe0, 0xc0, 0x80, 0x80, 
@@ -281,10 +272,32 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 
 void oled_render_layer_state(void) {
     
-    /* Print current mode */
-    oled_set_cursor(0, 0);
-    oled_write_raw_P(mac_logo, sizeof(mac_logo));
+    /* Print current layer */   
+    oled_set_cursor(0, 1);
+    oled_write("LAYER", false);
 
+    oled_set_cursor(0, 2);
+
+    switch (get_highest_layer(layer_state)) {
+        case _COLEMAK:
+            oled_write("Base ", false);
+            break;
+        case _MOVE:
+            oled_write("Move ", false);
+            break;
+        case _SYMBOLS:
+            oled_write("Symbl", false);
+            break;
+        case _NUMBERS:
+            oled_write("Nums ", false);
+            break;
+        case _WINDOW:
+            oled_write("Windw", false);
+            break;
+        default:
+            oled_write("Undef", false);
+    }
+    
     /* wpm counter */
     static char wpm_str[4];
 
@@ -303,47 +316,6 @@ void oled_render_layer_state(void) {
     /* KEYBOARD PET RENDER END */
 }
 
-
-char keylog_str[24] = {};
-
-const char code_to_name[60] = {
-    ' ', ' ', ' ', ' ', 'a', 'b', 'c', 'd', 'e', 'f',
-    'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-    'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
-    'R', 'E', 'B', 'T', '_', '-', '=', '[', ']', '\\',
-    '#', ';', '\'', '`', ',', '.', '/', ' ', ' ', ' '};
-
-void set_keylog(uint16_t keycode, keyrecord_t *record) {
-  char name = ' ';
-    if ((keycode >= QK_MOD_TAP && keycode <= QK_MOD_TAP_MAX) ||
-        (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX)) { keycode = keycode & 0xFF; }
-  if (keycode < 60) {
-    name = code_to_name[keycode];
-  }
-
-  // update keylog
-  snprintf(keylog_str, sizeof(keylog_str), "%dx%d, k%2d : %c",
-           record->event.key.row, record->event.key.col,
-           keycode, name);
-}
-
-
-void render_bootmagic_status(bool status) {
-    /* Show Ctrl-Gui Swap options */
-    static const char PROGMEM logo[][2][3] = {
-        {{0x97, 0x98, 0}, {0xb7, 0xb8, 0}},
-        {{0x95, 0x96, 0}, {0xb5, 0xb6, 0}},
-    };
-    if (status) {
-        oled_write_ln_P(logo[0][0], false);
-        oled_write_ln_P(logo[0][1], false);
-    } else {
-        oled_write_ln_P(logo[1][0], false);
-        oled_write_ln_P(logo[1][1], false);
-    }
-}
-
 void oled_render_logo(void) {
     /* Print dbt Logo */
     oled_set_cursor(0, 0);
@@ -354,8 +326,6 @@ void oled_render_logo(void) {
     oled_write_raw_P(dbt_logo, sizeof(dbt_logo));
 
 }
-
-
 
 void oled_task_user(void) {
     /* KEYBOARD PET VARIABLES START */
@@ -372,9 +342,6 @@ void oled_task_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-    set_keylog(keycode, record);
-  }
     switch (keycode) {
             /* KEYBOARD PET STATUS START */
 
