@@ -51,9 +51,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, KC_BTN2, KC_WH_U, KC_WH_D, XXXXXXX,                      KC_BTN1, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, _______,
+      XXXXXXX, XXXXXXX, KC_BTN2, KC_WH_U, KC_WH_D, LSFT(KC_LALT),                      KC_BTN1, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, XXXXXXX, TO(_COLEMAK), XXXXXXX, XXXXXXX, XXXXXXX
+                                          LSFT(KC_LCTL), _______, TO(_COLEMAK), XXXXXXX, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -307,7 +307,7 @@ void oled_render_logo(void) {
 
 }
 
-void oled_task_user(void) {
+bool oled_task_user(void) {
 
     /* KEYBOARD PET VARIABLES START */
 
@@ -320,7 +320,7 @@ void oled_task_user(void) {
     } else {
         oled_render_logo();
     }
-    return;
+    return true;
 }
 #endif // OLED_ENABLE
 
