@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, KC_BTN2, KC_WH_U, KC_WH_D, LSFT(KC_LALT),                      KC_BTN1, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          LSFT(KC_LCTL), _______, TO(_COLEMAK), XXXXXXX, XXXXXXX, XXXXXXX
+                                          LSFT(KC_LCTL), _______, TO(_COLEMAK), XXXXXXX, KC_LGUI, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
