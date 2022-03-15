@@ -34,7 +34,7 @@ enum tap_dance_declarations {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_COLEMAK] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
+      KC_ESC,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_TAB,     KC_A, LCTL_T(KC_R), LALT_T(KC_S), LGUI_T(KC_T),    KC_G,          KC_M, RGUI_T(KC_N), RALT_T(KC_E), RCTL_T(KC_I),    KC_O,    KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -83,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_WINDOW] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, XXXXXXX, A(C(G(KC_LEFT))), A(C(KC_UP)), A(C(G(KC_RIGHT))), XXXXXXX, XXXXXXX, A(C(KC_U)), A(C(KC_I)),  XXXXXXX, XXXXXXX, _______, 
+      KC_F13, XXXXXXX, A(C(G(KC_LEFT))), A(C(KC_UP)), A(C(G(KC_RIGHT))), XXXXXXX, XXXXXXX, A(C(KC_U)), A(C(KC_I)),  XXXXXXX, XXXXXXX, _______, 
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, A(C(KC_LEFT)), A(C(KC_DOWN)), A(C(KC_RIGHT)), XXXXXXX, XXXXXXX, A(C(KC_J)), A(C(KC_K)), XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
